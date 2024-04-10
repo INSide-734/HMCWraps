@@ -27,7 +27,7 @@ jobs:
         run: | 
           ./gradlew build 
           mkdir -p ${{ github.workspace }}/artifacts 
-          mv target/*.jar ${{ github.workspace }}/artifacts/ 
+          mv build/libs/*.jar ${{ github.workspace }}/artifacts/ 
       - name: Set version as environment variable 
         run: | 
           RELEASE_VERSION=$(./gradlew properties -q | grep "version:" | awk '{print $2}') 
